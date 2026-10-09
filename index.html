@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic document settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Search engine description -->
+  <meta name="description" content="Second Story curated vintage and second-hand clothing shop">
+
+  <title>Second Story | Curated Vintage Clothing</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Serif & Sans-Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================
+       1. CSS VARIABLES & BASE STYLES
+    ================================= */
+    :root {
+      --color-cream: #F8F5EE;
+      --color-card-bg: #F0EAE1;
+      --color-burgundy: #62232B;
+      --color-burgundy-dark: #4A1920;
+      --color-olive: #4A533B;
+      --color-text-dark: #231F20;
+      --color-text-muted: #6B6563;
+      --color-border: rgba(35, 31, 32, 0.12);
+      --box-shadow: 0 12px 30px rgba(35, 31, 32, 0.08);
+    }
+
+    body {
+      background-color: var(--color-cream);
+      font-family: 'Inter', sans-serif;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Small Tag / Label Pill */
+    .small-label {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      color: var(--color-burgundy);
+      background: rgba(98, 35, 43, 0.1);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ================================
+       2. HEADER & NAVIGATION
+    ================================= */
+    .site-header {
+      background: rgba(248, 245, 238, 0.94);
+      border-bottom: 1px solid var(--color-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-logo {
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      color: var(--color-burgundy);
+      text-decoration: none;
+    }
+
+    .navigation .nav-link {
+      color: var(--color-text-dark) !important;
+      font-size: 0.88rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+
+    .navigation .nav-link:hover {
+      background-color: var(--color-card-bg);
+      color: var(--color-burgundy) !important;
+    }
+
+    /* Custom Buttons using Bootstrap Utility Foundation */
+    .btn-burgundy {
+      background-color: var(--color-burgundy);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-burgundy:hover {
+      background-color: var(--color-burgundy-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-burgundy {
+      border: 1px solid var(--color-burgundy);
+      color: var(--color-burgundy);
+      border-radius: 999px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline-burgundy:hover {
+      background-color: var(--color-burgundy);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ================================
+       3. HERO SECTION
+    ================================= */
+    .hero-container {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+
+    .hero-text-box {
+      background-color: var(--color-burgundy);
+      color: #ffffff;
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      opacity: 0.88;
+      margin-bottom: 1.8rem;
+      max-width: 420px;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    /* ================================
+       4. PRODUCT & FEATURE CARDS
+    ================================= */
+    .product-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .product-tag {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background-color: rgba(74, 83, 59, 0.15);
+      color: var(--color-olive);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================================
+       5. ABOUT SECTION
+    ================================= */
+    .about-img {
+      border-radius: 20px;
+      height: 440px;
+      object-fit: cover;
+      box-shadow: var(--box-shadow);
+    }
+
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1.2rem;
+    }
+
+    .benefits-list li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .benefits-list li::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 0.75rem;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: var(--color-olive);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    /* ================================
+       6. PRICING & MEMBERSHIP
+    ================================= */
+    .price-card {
+      padding: 2rem;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      background: var(--color-card-bg);
+      box-shadow: var(--box-shadow);
+    }
+
+    .price-card.featured {
+      color: #ffffff;
+      background: var(--color-burgundy);
+      transform: scale(1.03);
+    }
+
+    .price-card.featured .text-muted-custom {
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+
+    /* ================================
+       7. REVIEWS & ORDER SECTION
+    ================================= */
+    .review-card {
+      padding: 1.5rem;
+      border-left: 4px solid var(--color-burgundy);
+      border-radius: 0 16px 16px 0;
+      background: var(--color-card-bg);
+      box-shadow: var(--box-shadow);
+    }
+
+    .stars {
+      color: #C28D38;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .order-box {
+      border-radius: 24px;
+      background: var(--color-burgundy);
+      color: #ffffff;
+      padding: 2.5rem;
+      box-shadow: var(--box-shadow);
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      background-color: var(--color-cream);
+      border: none;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+
+    .order-form input:focus,
+    .order-form select:focus,
+    .order-form textarea:focus {
+      background-color: #ffffff;
+      box-shadow: 0 0 0 0.25rem rgba(248, 245, 238, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================
+       HEADER & NAVIGATION
+  ================================= -->
+  <header class="site-header sticky-top py-2">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between min-vh-10">
+        
+        <!-- Brand Logo -->
+        <a class="brand-logo font-serif fw-bold text-uppercase d-flex align-items-center gap-2" href="#">
+          <i class="bi bi-shop"></i>
+          <span>Second Story</span>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="navigation d-none d-md-flex align-items-center gap-2" aria-label="Main navigation">
+          <a class="nav-link text-uppercase" href="#collection">Collection</a>
+          <a class="nav-link text-uppercase" href="#about">Our Story</a>
+          <a class="nav-link text-uppercase" href="#pricing">Sourcing Tiers</a>
+          <a class="nav-link text-uppercase" href="#order">Reserve Item</a>
+        </nav>
+
+        <!-- Right Side Icons & CTA Button -->
+        <div class="d-flex align-items-center gap-3">
+          <a href="#" class="text-dark me-1"><i class="bi bi-search fs-5"></i></a>
+          <a href="#" class="text-dark me-2"><i class="bi bi-bag fs-5"></i></a>
+          <a class="btn btn-burgundy btn-sm d-none d-sm-inline-block px-3" href="#order">Reserve now</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================
+       MAIN CONTENT
+  ================================= -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="container my-4 my-md-5">
+      <div class="row g-0 hero-container">
+        
+        <!-- Hero Text Column -->
+        <div class="col-lg-5 hero-text-box">
+          <span class="small-label text-white bg-white bg-opacity-10 mb-3 align-self-start">Curated Vintage · Weekly Drops</span>
+          <h1 class="font-serif hero-title">Find your next favourite.</h1>
+          <p class="hero-subtitle">One-of-a-kind pieces with stories worth continuing. Thoughtfully sourced, carefully chosen, and ready to be worn again.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-burgundy text-uppercase btn-sm px-4 py-2" href="#collection">Explore collection</a>
+            <a class="btn btn-outline-light text-uppercase btn-sm px-4 py-2" href="#about">Our Story</a>
+          </div>
+        </div>
+
+        <!-- Hero Image Column -->
+        <div class="col-lg-7">
+          <img src="images/hero.jpg" alt="Woman wearing vintage blazer" class="hero-img">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- COLLECTION / FLAVORS SECTION -->
+    <section id="collection" class="container py-5">
+      
+      <!-- Section Header -->
+      <div class="mb-4 style="max-width: 600px;">
+        <span class="small-label">Curated Collection</span>
+        <h2 class="font-serif display-6 fw-bold mb-2">Curated vintage finds</h2>
+        <p class="text-muted">Explore our latest rare items hand-selected from past decades.</p>
+      </div>
+
+      <!-- 3 Product Cards Grid -->
+      <div class="row g-4">
+        
+        <!-- Item 1 -->
+        <div class="col-md-4">
+          <article class="card product-card h-100">
+            <img src="images/Image (70s Suede Jacket).jpg" alt="70s Suede Jacket" class="product-img">
+            <div class="p-3">
+              <span class="product-tag">Outerwear</span>
+              <h3 class="h5 font-serif mb-1">70s Suede Jacket</h3>
+              <p class="small text-muted mb-2">Genuine soft suede with original brass hardware in rich cognac brown.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-burgundy">$120.00</span>
+                <a href="#order" class="btn btn-outline-burgundy btn-sm py-1 px-3">Reserve</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="col-md-4">
+          <article class="card product-card h-100">
+            <img src="images/Image (Ruby Slip Dress).jpg" alt="Ruby Slip Dress" class="product-img">
+            <div class="p-3">
+              <span class="product-tag">Dresses</span>
+              <h3 class="h5 font-serif mb-1">Ruby Slip Dress</h3>
+              <p class="small text-muted mb-2">90s silk slip dress in deep burgundy with subtle lace details along the neckline.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-burgundy">$85.00</span>
+                <a href="#order" class="btn btn-outline-burgundy btn-sm py-1 px-3">Reserve</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="col-md-4">
+          <article class="card product-card h-100">
+            <img src="images/Image (Patchwork Denim).jpg" alt="Patchwork Denim" class="product-img">
+            <div class="p-3">
+              <span class="product-tag">Denim</span>
+              <h3 class="h5 font-serif mb-1">Patchwork Denim</h3>
+              <p class="small text-muted mb-2">High-rise reworked denim jeans featuring unique multi-wash block patches.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-burgundy">$95.00</span>
+                <a href="#order" class="btn btn-outline-burgundy btn-sm py-1 px-3">Reserve</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT / STORY SECTION -->
+    <section id="about" class="container py-5">
+      <div class="row align-items-center g-4">
+        
+        <div class="col-lg-5">
+          <img src="images/hero.jpg" alt="Vintage fashion shop arrangement" class="about-img w-100">
+        </div>
+
+        <div class="col-lg-7 ps-lg-5">
+          <span class="small-label">Our Story</span>
+          <h2 class="font-serif display-5 fw-bold mb-3">Slow fashion. Timeless stories.</h2>
+          <p class="text-muted">Second Story began with a simple idea: clothing should be made to last and loved across generations. Every single item in our collection is hand-picked, cleaned, and authenticated.</p>
+          <p class="text-muted">Instead of fast fashion trends, we focus on durable fabrics, classic tailoring, and rare historical garments that make your wardrobe uniquely yours.</p>
+          
+          <ul class="benefits-list">
+            <li>100% Authenticated vintage pieces</li>
+            <li>Environmentally sustainable circular fashion</li>
+            <li>Steam-cleaned & ready to wear</li>
+            <li>Worldwide insured shipping</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRICING / SOURCING TIERS SECTION -->
+    <section id="pricing" class="container py-5">
+      <div class="mb-4 text-center">
+        <span class="small-label">Personal Styling & Sourcing</span>
+        <h2 class="font-serif display-6 fw-bold">Custom Sourcing Options</h2>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        
+        <!-- Tier 1 -->
+        <div class="col-md-4">
+          <article class="price-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="font-serif h4 mb-1">Standard Find</h3>
+              <p class="small text-muted mb-3">Single piece request</p>
+              <div class="price font-serif">$45<span class="fs-6 text-muted fw-normal"> / piece</span></div>
+              <ul class="list-unstyled my-4 small">
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>1 Specific requested item search</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>Size and fit measurements</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>Standard condition check</li>
+              </ul>
+            </div>
+            <a class="btn btn-outline-burgundy w-100" href="#order">Request Item</a>
+          </article>
+        </div>
+
+        <!-- Tier 2 (Featured) -->
+        <div class="col-md-4">
+          <article class="price-card featured h-100 d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-light text-dark mb-2 fw-semibold">Most Popular</span>
+              <h3 class="font-serif h4 mb-1">Curated Box</h3>
+              <p class="small text-muted-custom mb-3">Full seasonal look</p>
+              <div class="price font-serif">$140<span class="fs-6 fw-normal text-white-50"> / box</span></div>
+              <ul class="list-unstyled my-4 small">
+                <li class="mb-2"><i class="bi bi-check2 me-2"></i>3 Matching vintage garments</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2"></i>Includes 1 accessory</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2"></i>Personal styling advice card</li>
+              </ul>
+            </div>
+            <a class="btn btn-light w-100 fw-bold" style="color: var(--color-burgundy);" href="#order">Choose Curated Box</a>
+          </article>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="col-md-4">
+          <article class="price-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="font-serif h4 mb-1">Archive Member</h3>
+              <p class="small text-muted mb-3">VIP early access</p>
+              <div class="price font-serif">$25<span class="fs-6 text-muted fw-normal"> / month</span></div>
+              <ul class="list-unstyled my-4 small">
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>First access to new weekly drops</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>15% discount on all items</li>
+                <li class="mb-2"><i class="bi bi-check2 me-2 text-success"></i>Free global shipping</li>
+              </ul>
+            </div>
+            <a class="btn btn-outline-burgundy w-100" href="#order">Join Membership</a>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- REVIEWS SECTION -->
+    <section class="container py-5">
+      <div class="mb-4">
+        <span class="small-label">Customer Feedback</span>
+        <h2 class="font-serif h3">What our collectors say</h2>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <article class="review-card h-100">
+            <div class="stars">★★★★★</div>
+            <p class="small text-muted mb-2">“The 70s suede jacket arrived in perfect condition! Exactly as described and measurements were spot on.”</p>
+            <strong class="small">— Clara M.</strong>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="review-card h-100">
+            <div class="stars">★★★★★</div>
+            <p class="small text-muted mb-2">“Fast shipping, beautiful packaging, and high quality vintage pieces. Second Story is my favorite shop.”</p>
+            <strong class="small">— Julian K.</strong>
+          </article>
+        </div>
+
+        <div class="col-md-4">
+          <article class="review-card h-100">
+            <div class="stars">★★★★★</div>
+            <p class="small text-muted mb-2">“The curated box was a dream! Every piece fit well together and felt so personal.”</p>
+            <strong class="small">— Sophia T.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ORDER / RESERVE SECTION -->
+    <section id="order" class="container py-5">
+      <div class="order-box">
+        <div class="row g-4 align-items-center">
+          
+          <div class="col-lg-5">
+            <span class="small-label text-white bg-white bg-opacity-10 mb-2">Ready to collect?</span>
+            <h2 class="font-serif display-6 mb-3">Reserve your vintage item</h2>
+            <p class="text-white-50">Send us a reservation request and we will hold the piece and contact you with shipping and payment details.</p>
+          </div>
+
+          <div class="col-lg-7">
+            <form class="order-form row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="col-12">
+                <select class="form-select" required>
+                  <option value="">Select an Item or Service</option>
+                  <option>70s Suede Jacket ($120.00)</option>
+                  <option>Ruby Slip Dress ($85.00)</option>
+                  <option>Patchwork Denim ($95.00)</option>
+                  <option>Custom Curated Box ($140.00)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" rows="3" placeholder="Additional sizing or delivery requests..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-light w-100 font-serif fw-bold py-2" style="color: var(--color-burgundy);">Send Reservation Request</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+  <footer class="text-center py-4 text-muted border-top border-light-subtle">
+    <div class="container">
+      <p class="mb-0 small">
+        © 2026 Second Story Vintage Clothing. Handpicked with care and history.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
