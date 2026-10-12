@@ -271,3 +271,24 @@ body {
 .btn-reserve-submit {
   color: var(--color-burgundy);
 }
+
+/* ================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+================================= */
+@media (max-width: 768px) {
+  /* Reduce hero box padding on mobile screens */
+  .hero-text-box {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Scale down hero title for mobile screens */
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* Set a clean height for the hero image on mobile */
+  .hero-img {
+    height: 320px;
+    min-height: auto;
+  }
+}
