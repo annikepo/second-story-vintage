@@ -276,19 +276,18 @@ body {
    MOBILE RESPONSIVE ADJUSTMENTS
 ================================= */
 @media (max-width: 768px) {
-  /* Reduce hero box padding on mobile screens */
   .hero-text-box {
-    padding: 2rem 1.5rem;
+    padding: 1rem !important;
   }
-
-  /* Scale down hero title for mobile screens */
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
   }
-
-  /* Set a clean height for the hero image on mobile */
+  .hero-subtitle {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
   .hero-img {
-    height: 320px;
-    min-height: auto;
+    min-height: 100% !important;
   }
 }
